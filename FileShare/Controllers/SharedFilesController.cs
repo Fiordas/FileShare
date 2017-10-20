@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FileShare.Data;
 using FileShare.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FileShare.Controllers
 {
@@ -44,6 +45,7 @@ namespace FileShare.Controllers
         }
 
         // GET: SharedFiles/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
