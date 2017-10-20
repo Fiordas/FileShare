@@ -1,0 +1,45 @@
+﻿@model FileShare.Views.UploadFile.IndexModel
+
+<h2>File Upload</h2>
+<hr />
+
+<h3>Upload File</h3>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label asp-for="FileUpload.Name" class="control-label"></label>
+                <input asp-for="FileUpload.Name" type="text" class="form-control" />
+                <span asp-validation-for="FileUpload.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FileUpload.UploadPublicFile" class="control-label"></label>
+                <input asp-for="FileUpload.UploadPublicFile" type="file" class="form-control" style="height:auto" />
+                <span asp-validation-for="FileUpload.UploadPublicFile" class="text-danger"></span>
+            </div>
+            <input type="submit" value="Upload" class="btn btn-default" />
+        </form>
+    </div>
+</div>
+
+<h3>Loaded Schedules</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.SharedFile[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SharedFile[0].UploadDate)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.SharedFile[0].Size)
+            </th>
+        </tr>
+    </thead>
+</table>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

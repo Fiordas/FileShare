@@ -44,6 +44,12 @@ namespace FileShare.Controllers
         }
 
         // GET: SharedFiles/Create
+        public IActionResult UploadFile()
+        {
+            return View();
+        }
+
+        // GET: SharedFiles/Create
         public IActionResult Create()
         {
             return View();
